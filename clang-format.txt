@@ -1,0 +1,7 @@
+﻿---
+BasedOnStyle: Chromium
+AllowShortIfStatementsOnASingleLine: WithoutElse
+TabWidth: '2'
+UseTab: Never
+
+...
