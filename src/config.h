@@ -56,7 +56,7 @@ static const char swalsymbol[] = "👅";
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 /* Lockfile */
-static char lockfile[] = "/tmp/dwm.lock";
+static char lockfile[] = "/tmp/aero.lock";
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -189,7 +189,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_e,      exitdwm,       {0} },
+	{ MODKEY|ShiftMask,             XK_e,      exitaero,       {0} },
 	{ 0,            XF86XK_MonBrightnessUp,    spawn,          {.v = upbrightness } },
 	{ 0,            XF86XK_MonBrightnessDown,  spawn,          {.v = downbrightness } },
 };

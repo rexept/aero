@@ -28,7 +28,7 @@ void die(const char *fmt, ...) {
 }
 
 int xerrorstart(Display *dpy, XErrorEvent *ee) {
-  die("dwm: another window manager is already running");
+  die("aero: another window manager is already running");
   return -1;
 }
 
