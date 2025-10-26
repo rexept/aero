@@ -1,12 +1,11 @@
 #ifndef WM_H
 #define WM_H
 
-#include "client.h"
 #include "drw.h"
 #include "types.h"
 #include <X11/Xlib.h>
 
-typedef struct {
+struct wm_t {
   int screen;
   int sw, sh;
   Window root;
@@ -18,7 +17,7 @@ typedef struct {
   Drw *drw;
 
   int running;
-} wm_t;
+};
 extern wm_t *g_wm;
 
 void wm_init(wm_t *wm);

@@ -1,7 +1,9 @@
 #include "bar.h"
 #include "config.h"
+#include "monitor.h"
 #include "util.h"
 #include "wm.h"
+#include "drw.h"
 
 void init_bar(void) {
   if (!drw_fontset_create(g_wm->drw, fonts, LENGTH(fonts)))

@@ -3,10 +3,7 @@
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-#include "monitor.h"
 #include "types.h"
-
-typedef struct gap_t gap_t;
 
 typedef struct {
 	const char *class;

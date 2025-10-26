@@ -1,11 +1,11 @@
 #ifndef LAYOUT_H
 #define LAYOUT_H
 
-typedef struct monitor_t monitor_t;
+#include "types.h"
 
-typedef struct {
+struct layout_t {
 	const char *symbol;
 	void (*arrange)(monitor_t *);
-} layout_t;
+};
 
 #endif // LAYOUT_H

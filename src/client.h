@@ -2,8 +2,7 @@
 #define CLIENT_H
 
 #include <X11/X.h>
-typedef struct client_t client_t;
-typedef struct monitor_t monitor_t;
+#include "types.h"
 
 struct client_t {
   char name[256];

@@ -1,16 +1,14 @@
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include "bar.h"
-#include "client.h"
-#include "layout.h"
-typedef struct layout_t layout_t;
+#include <X11/X.h>
+#include "types.h"
 
-typedef struct {
+struct gap_t {
   int isgap;
   int realgap;
   int gappx;
-} gap_t;
+};
 
 struct monitor_t {
   char ltsymbol[16];
