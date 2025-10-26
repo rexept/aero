@@ -1,8 +1,8 @@
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include <X11/X.h>
 #include "types.h"
+#include <X11/X.h>
 
 struct gap_t {
   int isgap;
@@ -16,6 +16,7 @@ struct monitor_t {
   int nmaster;
   int num;
   int by;
+  int bh;
   int mx, my, mw, mh;
   int wx, wy, ww, wh;
   unsigned int seltags;
@@ -35,5 +36,7 @@ struct monitor_t {
 
 monitor_t *createmon(void);
 void cleanupmon(monitor_t *mon);
+monitor_t *wintomon(Window w);
+monitor_t *recttomon(int x, int y, int w, int h);
 
 #endif // MONITOR_H
