@@ -1,3 +1,5 @@
+#ifndef DRW_H
+#define DRW_H
 // Thanks to Suckless for most of this code
 
 #include <X11/Xft/Xft.h>
@@ -58,3 +60,5 @@ int drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned in
 
 /* Map functions */
 void drw_map(Drw *drw, Window win, int x, int y, unsigned int w, unsigned int h);
+
+#endif // DRW_H
