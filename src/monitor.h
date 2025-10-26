@@ -10,7 +10,7 @@ typedef struct {
   int isgap;
   int realgap;
   int gappx;
-} Gap;
+} gap_t;
 
 struct monitor_t {
   char ltsymbol[16];
@@ -25,13 +25,12 @@ struct monitor_t {
   unsigned int tagset[2];
   int showbar;
   int topbar;
-  Gap *gap;
+  gap_t *gap;
   client_t *clients;
   client_t *sel;
   client_t *stack;
   monitor_t *next;
   Window barwin;
-  const Layout *lt[2];
   const layout_t *lt[2];
   bar_t bar;
 };
