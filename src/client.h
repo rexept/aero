@@ -19,4 +19,7 @@ struct client_t {
   Window *win;
 };
 
+void detachstack(client_t *c);
+void attach(client_t *c);
+void attachstack(client_t *c);
 #endif // CLIENT_H
