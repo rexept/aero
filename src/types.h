@@ -1,3 +1,6 @@
+#ifndef TYPES_H
+#define TYPES_H
+
 enum { CurNormal, CurResize, CurMove, CurLast };
 enum { SchemeNorm, SchemeSel };
 enum {
@@ -29,3 +32,5 @@ typedef union {
   float f;
   const void *v;
 } Arg;
+
+#endif // TYPES_H
