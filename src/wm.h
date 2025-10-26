@@ -17,6 +17,10 @@ struct wm_t {
   Drw *drw;
 
   int running;
+
+  Atom wmatom[WMLast];
+  Atom netatom[NetLast];
+  Atom utf8string;
 };
 extern wm_t *g_wm;
 

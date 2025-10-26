@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <time.h>
 
+#include "atoms.h"
 #include "bar.h"
 #include "config.h"
 #include "draw.h"
@@ -35,6 +36,7 @@ void wm_setup(void) {
   wm_init_screen();
   init_bar();
   updategeom();
+  init_atoms();
 
   // loading fonts
   // creating colours for the colour schemes
