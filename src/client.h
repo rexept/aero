@@ -22,4 +22,6 @@ struct client_t {
 void detachstack(client_t *c);
 void attach(client_t *c);
 void attachstack(client_t *c);
+client_t *wintoclient(Window w);
+
 #endif // CLIENT_H
