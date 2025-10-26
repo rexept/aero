@@ -235,4 +235,5 @@ static Signal signals[] = {
 	/* signum       function        argument  */
 	{ 1,            setlayout,      {.v = 0} },
 };
+
 #endif // CONFIG_H
