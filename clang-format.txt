@@ -1,7 +1,12 @@
 ﻿---
-BasedOnStyle: Chromium
+BasedOnStyle: LLVM
 AllowShortIfStatementsOnASingleLine: WithoutElse
-TabWidth: '2'
-UseTab: Never
-
+IndentWidth: 4
+AlignAfterOpenBracket: BAS_Align
+AlignArrayOfStuctures AIAS_Right
+AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveBitFields: Consecutive
+AlignConsecutiveMacros: Consecutive
+AlignOperands: BreakBeforeBinaryOperators
+BreakBeforeBinaryOperators: BOS_NonAssignment
 ...
