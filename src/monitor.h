@@ -4,6 +4,7 @@
 #include "bar.h"
 #include "client.h"
 #include "layout.h"
+typedef struct layout_t layout_t;
 
 typedef struct {
   int isgap;
@@ -31,6 +32,7 @@ struct monitor_t {
   monitor_t *next;
   Window barwin;
   const Layout *lt[2];
+  const layout_t *lt[2];
   bar_t bar;
 };
 
