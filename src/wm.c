@@ -15,6 +15,7 @@ void wm_init(wm_t *wm) {
     fprintf(stderr, "warning: g_wm already initiliazed");
   g_wm = wm;
 }
+
 static void wm_init_screen(void) {
   g_wm->screen = DefaultScreen(g_wm->dpy);
   g_wm->sw = DisplayWidth(g_wm->dpy, g_wm->screen);
@@ -23,6 +24,27 @@ static void wm_init_screen(void) {
   g_wm->drw =
       drw_create(g_wm->dpy, g_wm->screen, g_wm->root, g_wm->sw, g_wm->sh);
 }
+
+void wm_setup(void) {
+  // setting up monitors
+  int i;
+  XSetWindowAttributes wa;
+  Atom utf8string;
+
+  init_child_signals();
+  wm_init_screen();
+  init_bar();
+  updategeom();
+
+  // loading fonts
+  // creating colours for the colour schemes
+  // creating cursors
+  // creating the bars
+  // setting window manager hints
+  // telling the X server what kind of events the window manager is interested
+  // in
+}
+
 void quit(const Arg *arg) {
   FILE *fd = NULL;
   struct stat filestat;

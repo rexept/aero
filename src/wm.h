@@ -21,6 +21,7 @@ struct wm_t {
 extern wm_t *g_wm;
 
 void wm_init(wm_t *wm);
+void wm_setup(void);
 void quit(const Arg *arg);
 
 #endif // WM_H

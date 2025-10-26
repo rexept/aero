@@ -24,6 +24,9 @@ int main(int argc, char *argv[]) {
 
   checkotherwm();
 
+  // Bring everything online
+  wm_setup();
+
   XCloseDisplay(wm.dpy);
   return EXIT_SUCCESS;
 }
