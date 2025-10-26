@@ -10,17 +10,17 @@ struct wm_t {
   int sw, sh;
   Window root;
   Display *dpy;
+  int running;
   int (*xerrorxlib)(Display *, XErrorEvent *);
 
   monitor_t *mons;
   monitor_t *selmon;
   Drw *drw;
 
-  int running;
-
   Atom wmatom[WMLast];
   Atom netatom[NetLast];
   Atom utf8string;
+
   Cur *cursor[CurLast];
 };
 extern wm_t *g_wm;
