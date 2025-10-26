@@ -8,9 +8,8 @@ typedef struct {
   Display *dpy;
   int (*xerrorxlib)(Display *, XErrorEvent *);
 } wm_t;
+extern wm_t *g_wm;
 
 void wm_init(wm_t *wm);
-
-extern wm_t *g_wm;
 
 #endif // WM_H
