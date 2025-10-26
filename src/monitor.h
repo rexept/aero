@@ -34,4 +34,6 @@ struct monitor_t {
   bar_t bar;
 };
 
+monitor_t *createmon(void);
+
 #endif // MONITOR_H
