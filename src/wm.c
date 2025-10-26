@@ -5,6 +5,7 @@
 #include "atoms.h"
 #include "bar.h"
 #include "config.h"
+#include "cursor.h"
 #include "draw.h"
 #include "signals.h"
 #include "wm.h"
@@ -37,6 +38,7 @@ void wm_setup(void) {
   init_bar();
   updategeom();
   init_atoms();
+  init_cursors();
 
   // loading fonts
   // creating colours for the colour schemes
