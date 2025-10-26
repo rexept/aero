@@ -2,6 +2,8 @@
 #include "config.h"
 #include "string.h"
 #include "util.h"
+#include "wm.h"
+#include <X11/Xlib.h>
 
 monitor_t *createmon(void) {
   monitor_t *m;
@@ -22,4 +24,19 @@ monitor_t *createmon(void) {
   strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
 
   return m;
+}
+void cleanupmon(monitor_t *mon) {
+  monitor_t *m;
+
+  if (mon == g_wm->mons) {
+    g_wm->mons = g_wm->mons->next;
+  } else {
+    for (m = g_wm->mons; m && m->next != mon; m = m->next)
+      ;
+    m->next = mon->next;
+  }
+
+  XUnmapWindow(g_wm->dpy, mon->barwin);
+  XDestroyWindow(g_wm->dpy, mon->barwin);
+  free(mon);
 }

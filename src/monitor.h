@@ -34,5 +34,6 @@ struct monitor_t {
 };
 
 monitor_t *createmon(void);
+void cleanupmon(monitor_t *mon);
 
 #endif // MONITOR_H
