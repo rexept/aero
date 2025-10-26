@@ -1,4 +1,4 @@
-#include <X11/Xproto.h>
+#include <X11/Xlib.h>
 #include <stdio.h>
 
 #include "wm.h"
@@ -20,4 +20,13 @@ int xerror(Display *dpy, XErrorEvent *ee) {
   fprintf(stderr, "aero: fatal error: request code=%d, error code=%d\n",
           ee->request_code, ee->error_code);
   return g_wm->xerrorxlib(dpy, ee);
+}
+
+int getrootptr(int *x, int *y) {
+  int di;
+  unsigned dui;
+  Window dummy;
+
+  return XQueryPointer(g_wm->dpy, g_wm->root, &dummy, &dummy, x, y, &di, &di,
+                       &dui);
 }

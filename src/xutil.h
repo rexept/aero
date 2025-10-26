@@ -4,6 +4,6 @@
 #include <X11/Xlib.h>
 
 int xerror(Display *dpy, XErrorEvent *ee);
-
+int getrootptr(int *x, int *y);
 
 #endif // XUTIL_H
