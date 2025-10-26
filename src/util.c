@@ -44,3 +44,11 @@ void checkotherwm(void) {
   XSetErrorHandler(xerror);
   XSync(g_wm->dpy, False);
 }
+
+void *ecalloc(size_t nmemb, size_t size) {
+  void *p;
+
+  if (!(p = calloc(nmemb, size)))
+    die("calloc:");
+  return p;
+}
