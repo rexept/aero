@@ -4,7 +4,7 @@ aero is a window manager built atop of dwm.
 dwm is an extremely fast, small, and dynamic window manager(dwm) for X.
 
 ---
-** aero is currently a working dwm fork, but will soon turn into its own independent wm**
+**aero is currently a working dwm fork, but will soon turn into its own independent wm**
 
 
 Requirements
