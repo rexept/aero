@@ -23,6 +23,5 @@ extern wm_t *g_wm;
 
 void wm_init(wm_t *wm);
 void quit(const Arg *arg);
-static void wm_init_screen(void);
 
 #endif // WM_H
