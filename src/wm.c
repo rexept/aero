@@ -28,25 +28,12 @@ static void wm_init_screen(void) {
 }
 
 void wm_setup(void) {
-  // setting up monitors
-  int i;
-  XSetWindowAttributes wa;
-  Atom utf8string;
-
   init_child_signals();
   wm_init_screen();
   init_bar();
   updategeom();
   init_atoms();
   init_cursors();
-
-  // loading fonts
-  // creating colours for the colour schemes
-  // creating cursors
-  // creating the bars
-  // setting window manager hints
-  // telling the X server what kind of events the window manager is interested
-  // in
 }
 
 void quit(const Arg *arg) {
