@@ -2,10 +2,11 @@
 #include <stdio.h>
 #include <time.h>
 
+#include "bar.h"
 #include "config.h"
+#include "draw.h"
 #include "signals.h"
 #include "wm.h"
-#include "bar.h"
 
 wm_t *g_wm = NULL;
 
