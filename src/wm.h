@@ -21,6 +21,7 @@ struct wm_t {
   Atom wmatom[WMLast];
   Atom netatom[NetLast];
   Atom utf8string;
+  Cur *cursor[CurLast];
 };
 extern wm_t *g_wm;
 

@@ -8,7 +8,7 @@ typedef struct gap_t gap_t;
 typedef struct wm_t wm_t;
 typedef struct layout_t layout_t;
 
-enum { CurNormal, CurResize, CurMove, CurLast };
+enum { CurNormal, CurResize, CurMove, CurSwal, CurLast };
 enum { SchemeNorm, SchemeSel };
 enum {
   NetSupported,
