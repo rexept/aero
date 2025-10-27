@@ -16,6 +16,7 @@ struct wm_t {
   monitor_t *mons;
   monitor_t *selmon;
   Drw *drw;
+  Clr **scheme;
 
   Atom wmatom[WMLast];
   Atom netatom[NetLast];

@@ -1,4 +1,6 @@
 #include "client.h"
+#include "config.h"
+#include "drw.h"
 #include "monitor.h"
 #include "util.h"
 #include "wm.h"
@@ -108,4 +110,11 @@ int updategeom(void) {
     g_wm->selmon = wintomon(g_wm->root);
   }
   return dirty;
+}
+
+void init_colors(void) {
+  g_wm->scheme = ecalloc(LENGTH(colors), sizeof(Clr *));
+
+  for (int i = 0; i < LENGTH(colors); i++)
+    g_wm->scheme[i] = drw_scm_create(g_wm->drw, colors[i], 3);
 }

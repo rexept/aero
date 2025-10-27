@@ -9,5 +9,6 @@ static int isuniquegeom(XineramaScreenInfo *unique, size_t n,
 
 // TODO: simplify
 int updategeom(void);
+void init_colors(void);
 
 #endif // DRAW_H

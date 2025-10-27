@@ -34,6 +34,7 @@ void wm_setup(void) {
   updategeom();
   init_atoms();
   init_cursors();
+  init_colors();
 }
 
 void quit(const Arg *arg) {
