@@ -5,5 +5,6 @@
 
 int xerror(Display *dpy, XErrorEvent *ee);
 int getrootptr(int *x, int *y);
+int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 
 #endif // XUTIL_H

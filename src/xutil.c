@@ -1,4 +1,5 @@
 #include <X11/Xlib.h>
+#include <X11/Xatom.h>
 #include <stdio.h>
 
 #include "wm.h"
@@ -29,4 +30,26 @@ int getrootptr(int *x, int *y) {
 
   return XQueryPointer(g_wm->dpy, g_wm->root, &dummy, &dummy, x, y, &di, &di,
                        &dui);
+}
+
+int gettextprop(Window w, Atom atom, char *text, unsigned int size) {
+  char **list = NULL;
+  int n;
+  XTextProperty name;
+
+  if (!text || size == 0)
+    return 0;
+  text[0] = '\0';
+  if (!XGetTextProperty(dpy, w, &name, atom) || !name.nitems)
+    return 0;
+  if (name.encoding == XA_STRING) {
+    strncpy(text, (char *)name.value, size - 1);
+  } else if (XmbTextPropertyToTextList(dpy, &name, &list, &n) >= Success &&
+             n > 0 && *list) {
+    strncpy(text, *list, size - 1);
+    XFreeStringList(list);
+  }
+  text[size - 1] = '\0';
+  XFree(name.value);
+  return 1;
 }
