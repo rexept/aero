@@ -10,5 +10,6 @@ struct bar_t {
 };
 
 void init_bar(void);
+void updatebars(void);
 
 #endif // BAR_H

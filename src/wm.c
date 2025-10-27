@@ -35,6 +35,7 @@ void wm_setup(void) {
   init_atoms();
   init_cursors();
   init_colors();
+  updatebars();
 }
 
 void quit(const Arg *arg) {
