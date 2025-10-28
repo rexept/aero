@@ -36,6 +36,7 @@ void wm_setup(void) {
   init_cursors();
   init_colors();
   updatebars();
+  updatestatus();
 }
 
 void quit(const Arg *arg) {
