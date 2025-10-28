@@ -1,6 +1,8 @@
 #ifndef TYPES_H
 #define TYPES_H
 
+#include <sys/types.h>
+
 typedef struct client_t client_t;
 typedef struct monitor_t monitor_t;
 typedef struct bar_t bar_t;

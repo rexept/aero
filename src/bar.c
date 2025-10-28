@@ -52,7 +52,7 @@ void drawbar(monitor_t *m) {
   int x, w, tw = 0;
   int boxs = g_wm->drw->fonts->h / 9;
   int boxw = g_wm->drw->fonts->h / 6 + 2;
-  unsigned int i, occ = 0, urg = 0;
+  unsigned int occ = 0, urg = 0;
   client_t *c;
 
   Drw *drw = g_wm->drw;
@@ -74,7 +74,7 @@ void drawbar(monitor_t *m) {
       urg |= c->tags;
   }
   x = 0;
-  for (i = 0; i < LENGTH(tags); i++) {
+  for (uint i = 0; i < LENGTH(tags); i++) {
     /* do not draw vacant tags */
     if (!(occ & 1 << i || m->tagset[m->seltags] & 1 << i))
       continue;
