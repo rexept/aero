@@ -7,7 +7,9 @@
 #include "config.h"
 #include "cursor.h"
 #include "draw.h"
+#include "ewmh.h"
 #include "signals.h"
+#include "xinit.h"
 #include "wm.h"
 
 wm_t *g_wm = NULL;
@@ -37,6 +39,8 @@ void wm_setup(void) {
   init_colors();
   updatebars();
   updatestatus();
+  init_ewmh_support_window();
+  init_ewmh_root_properties();
 }
 
 void quit(const Arg *arg) {
