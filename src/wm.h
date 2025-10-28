@@ -9,6 +9,7 @@ struct wm_t {
   int screen;
   int sw, sh;
   Window root;
+  Window wmcheckwin;
   Display *dpy;
   int running;
   int (*xerrorxlib)(Display *, XErrorEvent *);
