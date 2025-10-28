@@ -15,6 +15,7 @@ struct client_t {
   int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
   client_t *next;
   client_t *snext;
+  client_t *swer;
   monitor_t *mon;
   Window *win;
 };
