@@ -41,6 +41,7 @@ void wm_setup(void) {
   updatestatus();
   init_ewmh_support_window();
   init_ewmh_root_properties();
+  init_root_events();
 }
 
 void quit(const Arg *arg) {
