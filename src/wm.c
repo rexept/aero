@@ -8,6 +8,7 @@
 #include "cursor.h"
 #include "draw.h"
 #include "ewmh.h"
+#include "key.h"
 #include "signals.h"
 #include "xinit.h"
 #include "wm.h"
@@ -42,6 +43,7 @@ void wm_setup(void) {
   init_ewmh_support_window();
   init_ewmh_root_properties();
   init_root_events();
+  grabkeys();
 }
 
 void quit(const Arg *arg) {
