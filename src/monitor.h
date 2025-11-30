@@ -31,7 +31,7 @@ struct monitor_t {
   monitor_t *next;
   Window barwin;
   const layout_t *lt[2];
-  bar_t bar;
+  bar_t *bar;
 };
 
 monitor_t *createmon(void);

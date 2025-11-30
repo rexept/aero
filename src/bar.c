@@ -13,8 +13,8 @@ void init_bar(void) {
   if (!drw_fontset_create(g_wm->drw, fonts, LENGTH(fonts)))
     die("no fonts could be loaded.");
   monitor_t *mon = g_wm->selmon;
-  mon->bar.lrpad = g_wm->drw->fonts->h;
-  mon->bar.bh = g_wm->drw->fonts->h + user_bh;
+  mon->bar->lrpad = g_wm->drw->fonts->h;
+  mon->bar->bh = g_wm->drw->fonts->h + user_bh;
 }
 
 void updatebars(void) {
@@ -41,7 +41,7 @@ void updatebars(void) {
 }
 
 void updatestatus(void) {
-  char *stext = g_wm->selmon->bar.stext;
+  char *stext = g_wm->selmon->bar->stext;
   if (!gettextprop(g_wm->root, XA_WM_NAME, stext, sizeof(stext)))
     strcpy(stext, "aero-" VERSION);
   drawbar(g_wm->selmon);
@@ -64,8 +64,8 @@ void drawbar(monitor_t *m) {
   /* draw status first so it can be overdrawn by tags later */
   if (m == mon) { /* status is only drawn on selected monitor */
     drw_setscheme(drw, g_wm->scheme[SchemeNorm]);
-    tw = TEXTW(m->bar.stext) - m->bar.lrpad + 2; /* 2px right padding */
-    drw_text(drw, m->ww - tw, 0, tw, m->bar.bh, 0, m->bar.stext, 0);
+    tw = TEXTW(m->bar->stext) - m->bar->lrpad + 2; /* 2px right padding */
+    drw_text(drw, m->ww - tw, 0, tw, m->bar->bh, 0, m->bar->stext, 0);
   }
 
   for (c = m->clients; c; c = c->next) {
@@ -84,7 +84,7 @@ void drawbar(monitor_t *m) {
     drw_setscheme(
         drw,
         g_wm->scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
-    drw_text(drw, x, 0, w, m->bar.bh, m->bar.lrpad / 2, tags[i], urg & 1 << i);
+    drw_text(drw, x, 0, w, m->bar->bh, m->bar->lrpad / 2, tags[i], urg & 1 << i);
     for (c = m->clients; c; c = c->next) {
       if (c->tags & (1 << i)) {
         drw_rect(drw, x, 1 + (indn * 2), m->sel == c ? 6 : 1, 1, 1,
@@ -97,24 +97,24 @@ void drawbar(monitor_t *m) {
   }
   w = TEXTW(m->ltsymbol);
   drw_setscheme(drw, g_wm->scheme[SchemeNorm]);
-  x = drw_text(drw, x, 0, w, m->bar.bh, m->bar.lrpad / 2, m->ltsymbol, 0);
+  x = drw_text(drw, x, 0, w, m->bar->bh, m->bar->lrpad / 2, m->ltsymbol, 0);
 
   /* Draw swalsymbol next to ltsymbol. */
   if (m->sel && m->sel->swer) {
     w = TEXTW(swalsymbol);
-    x = drw_text(drw, x, 0, w, m->bar.bh, m->bar.lrpad / 2, swalsymbol, 0);
+    x = drw_text(drw, x, 0, w, m->bar->bh, m->bar->lrpad / 2, swalsymbol, 0);
   }
 
-  if ((w = m->ww - tw - x) > m->bar.bh) {
+  if ((w = m->ww - tw - x) > m->bar->bh) {
     if (m->sel) {
       drw_setscheme(drw, g_wm->scheme[m == mon ? SchemeSel : SchemeNorm]);
-      drw_text(drw, x, 0, w, m->bar.bh, m->bar.lrpad / 2, m->sel->name, 0);
+      drw_text(drw, x, 0, w, m->bar->bh, m->bar->lrpad / 2, m->sel->name, 0);
       if (m->sel->isfloating)
         drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
     } else {
       drw_setscheme(drw, g_wm->scheme[SchemeNorm]);
-      drw_rect(drw, x, 0, w, m->bar.bh, 1, 1);
+      drw_rect(drw, x, 0, w, m->bar->bh, 1, 1);
     }
   }
-  drw_map(drw, m->barwin, 0, 0, m->ww, m->bar.bh);
+  drw_map(drw, m->barwin, 0, 0, m->ww, m->bar->bh);
 }

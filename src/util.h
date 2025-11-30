@@ -11,7 +11,7 @@
 #define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->wx+(m)->ww) - MAX((x),(m)->wx)) \
                                * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
 #define LENGTH(X)               (sizeof X / sizeof X[0])
-#define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + g_wm->selmon->bar.lrpad)
+#define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + g_wm->selmon->bar->lrpad)
 // clang-format on
 
 #include <X11/Xlib.h>
