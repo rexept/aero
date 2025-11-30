@@ -15,5 +15,6 @@ void init_bar(void);
 void updatebars(void);
 void updatestatus(void);
 void drawbar(monitor_t *m);
+void drawbars(void);
 
 #endif // BAR_H

@@ -119,3 +119,10 @@ void drawbar(monitor_t *m) {
   }
   drw_map(drw, m->barwin, 0, 0, m->ww, m->bar->bh);
 }
+
+void drawbars(void) {
+  monitor_t *m;
+
+  for (m = g_wm->mons; m; m = m->next)
+    drawbar(m);
+}
