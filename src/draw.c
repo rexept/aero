@@ -35,7 +35,7 @@ static int isuniquegeom(XineramaScreenInfo *unique, size_t n,
 /* setup monitors if compiled with XINERAMA
  * if not then the available screen space is set up as a single workspace that
  * spans all monitors. */
-int updategeom(void) {
+int init_monitors(void) {
   int dirty = 0;
 
 #ifdef XINERAMA

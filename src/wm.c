@@ -11,8 +11,8 @@
 #include "key.h"
 #include "manage.h"
 #include "signals.h"
-#include "xinit.h"
 #include "wm.h"
+#include "xinit.h"
 
 wm_t *g_wm = NULL;
 
@@ -34,8 +34,10 @@ static void wm_init_screen(void) {
 void wm_setup(void) {
   init_child_signals();
   wm_init_screen();
-  init_bar();
-  updategeom();
+  init_bars();
+  init_monitors();
+  if (!g_wm->selmon)
+    g_wm->selmon = g_wm->mons;
   init_atoms();
   init_cursors();
   init_colors();

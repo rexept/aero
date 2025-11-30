@@ -8,7 +8,7 @@ static int isuniquegeom(XineramaScreenInfo *unique, size_t n,
 #endif /* XINERAMA */
 
 // TODO: simplify
-int updategeom(void);
+int init_monitors(void);
 void init_colors(void);
 
 #endif // DRAW_H

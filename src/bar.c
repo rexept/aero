@@ -9,12 +9,18 @@
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 
-void init_bar(void) {
+void init_bars(void) {
   if (!drw_fontset_create(g_wm->drw, fonts, LENGTH(fonts)))
-    die("no fonts could be loaded.");
-  monitor_t *mon = g_wm->selmon;
-  mon->bar->lrpad = g_wm->drw->fonts->h;
-  mon->bar->bh = g_wm->drw->fonts->h + user_bh;
+    die("no fonts could be loaded");
+
+  if (!g_wm->drw || !g_wm->drw->fonts)
+    die("drw/fonts not initialized");
+
+  monitor_t *m;
+  for (m = g_wm->mons; m; m = m->next) {
+    m->bar.lrpad = g_wm->drw->fonts->h;
+    m->bar.bh = g_wm->drw->fonts->h + user_bh;
+  }
 }
 
 void updatebars(void) {

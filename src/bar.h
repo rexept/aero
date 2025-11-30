@@ -11,7 +11,7 @@ struct bar_t {
   Window win;
 };
 
-void init_bar(void);
+void init_bars(void);
 void updatebars(void);
 void updatestatus(void);
 void drawbar(monitor_t *m);
