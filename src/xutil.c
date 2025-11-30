@@ -26,14 +26,14 @@ int xerror(Display *dpy, XErrorEvent *ee) {
 
 int getrootptr(int *x, int *y) {
   int di;
-  unsigned dui;
+  uint dui;
   Window dummy;
 
   return XQueryPointer(g_wm->dpy, g_wm->root, &dummy, &dummy, x, y, &di, &di,
                        &dui);
 }
 
-int gettextprop(Window w, Atom atom, char *text, unsigned int size) {
+int gettextprop(Window w, Atom atom, char *text, uint size) {
   char **list = NULL;
   int n;
   XTextProperty name;

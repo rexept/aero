@@ -37,7 +37,7 @@ enum {
 
 typedef union {
   int i;
-  unsigned int ui;
+  uint ui;
   float f;
   const void *v;
 } Arg;

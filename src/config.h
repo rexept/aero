@@ -11,13 +11,13 @@ typedef struct {
   const char *class;
   const char *instance;
   const char *title;
-  unsigned int tags;
+  uint tags;
   int isfloating;
   int monitor;
 } Rule;
 
 typedef struct {
-  unsigned int mod;
+  uint mod;
   KeySym keysym;
   void (*func)(void);
   const Arg arg;
@@ -27,9 +27,9 @@ typedef struct {
 /*---------------------------------------- Edit config options below this point ---------------------------------------*/
 
 /* appearance */
-static const unsigned int borderpx = 2; /* border pixel of windows */
+static const uint borderpx = 2; /* border pixel of windows */
 static const gap_t default_gap = {.isgap = 1, .realgap = 10, .gappx = 10};
-static const unsigned int snap = 32; /* snap pixel */
+static const uint snap = 32; /* snap pixel */
 static const int showbar = 1;        /* 0 means no bar */
 static const int topbar = 1;         /* 0 means bottom bar */
 static const int startontag = 1;   /* 0 means no tag active on start */

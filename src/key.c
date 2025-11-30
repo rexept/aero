@@ -5,7 +5,7 @@
 #include <X11/X.h>
 #include <X11/Xlib.h>
 
-static unsigned int numlockmask = 0;
+static uint numlockmask = 0;
 
 static void updatenumlockmask(void) {
   numlockmask = 0;
@@ -23,7 +23,7 @@ void grabkeys(void) {
   updatenumlockmask();
 
   int start, end, skip;
-  unsigned int modifiers[] = {0, LockMask, numlockmask, numlockmask | LockMask};
+  uint modifiers[] = {0, LockMask, numlockmask, numlockmask | LockMask};
   XUngrabKey(g_wm->dpy, AnyKey, AnyModifier, g_wm->root);
   XDisplayKeycodes(g_wm->dpy, &start, &end);
 

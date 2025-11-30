@@ -11,7 +11,7 @@ struct client_t {
   int oldx, oldy, oldw, oldh;
   int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
   int bw, oldbw;
-  unsigned int tags;
+  uint tags;
   int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
   client_t *next;
   client_t *snext;

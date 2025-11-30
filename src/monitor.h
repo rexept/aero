@@ -19,9 +19,9 @@ struct monitor_t {
   int bh;
   int mx, my, mw, mh;
   int wx, wy, ww, wh;
-  unsigned int seltags;
-  unsigned int sellt;
-  unsigned int tagset[2];
+  uint seltags;
+  uint sellt;
+  uint tagset[2];
   int showbar;
   int topbar;
   gap_t *gap;

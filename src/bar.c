@@ -52,7 +52,7 @@ void drawbar(monitor_t *m) {
   int x, w, tw = 0;
   int boxs = g_wm->drw->fonts->h / 9;
   int boxw = g_wm->drw->fonts->h / 6 + 2;
-  unsigned int occ = 0, urg = 0;
+  uint occ = 0, urg = 0;
   client_t *c;
 
   Drw *drw = g_wm->drw;
