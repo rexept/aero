@@ -2,6 +2,7 @@
 #define MONITOR_H
 
 #include "types.h"
+#include "bar.h"
 #include <X11/X.h>
 
 struct gap_t {
@@ -31,7 +32,7 @@ struct monitor_t {
   monitor_t *next;
   Window barwin;
   const layout_t *lt[2];
-  bar_t *bar;
+  bar_t bar;
 };
 
 monitor_t *createmon(void);
