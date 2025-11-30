@@ -23,6 +23,14 @@ typedef struct {
   const Arg arg;
 } Key;
 
+typedef struct {
+  unsigned int click;
+  unsigned int mask;
+  unsigned int button;
+  void (*func)(void);
+  const Arg arg;
+} Button;
+
 // clang-format off
 /*---------------------------------------- Edit config options below this point ---------------------------------------*/
 
@@ -209,6 +217,9 @@ static const Key keys[] = {{ MODKEY|ShiftMask,             XK_e,      exitaero, 
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+static const Button buttons[] = {
+	{ ClkLtSymbol,          0,              Button1,        exitaero,      {0} },
+};
 // static const Button buttons[] = {
 // 	/* click                event mask      button          function        argument */
 // 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
