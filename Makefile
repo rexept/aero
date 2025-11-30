@@ -25,7 +25,7 @@ $(TARGET): $(OBJS)
 	$(CC) $(OBJS) $(LDFLAGS) -o $@
 
 clean:
-	rm -f aero ${OBJ} aero-${VERSION}.tar.gz
+	rm -f aero ${OBJS} aero-${VERSION}.tar.gz
 
 # update for aero (icon)
 dist: clean
