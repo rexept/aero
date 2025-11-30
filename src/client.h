@@ -17,7 +17,7 @@ struct client_t {
   client_t *snext;
   client_t *swer;
   monitor_t *mon;
-  Window *win;
+  Window win;
 };
 
 void detachstack(client_t *c);
