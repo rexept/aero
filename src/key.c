@@ -1,5 +1,7 @@
 #include "key.h"
+#include "client.h"
 #include "config.h"
+#include "types.h"
 #include "util.h"
 #include "wm.h"
 #include <X11/X.h>
@@ -40,4 +42,20 @@ void grabkeys(void) {
                    GrabModeAsync, GrabModeAsync);
 
   XFree(syms);
+}
+
+void grabmbuttons(client_t *c, int focused) {
+  updatenumlockmask();
+
+  uint modifiers[] = {0, LockMask, numlockmask, numlockmask | LockMask};
+  XUngrabKey(g_wm->dpy, AnyButton, AnyModifier, c->win);
+  if (!focused)
+    XGrabButton(g_wm->dpy, AnyButton, AnyModifier, c->win, False, BUTTONMASK,
+                GrabModeSync, GrabModeSync, None, None);
+  for (uint i = 0; i < LENGTH(buttons); i++)
+    if (buttons[i].click == ClkClientWin)
+      for (uint j = 0; j < LENGTH(modifiers); j++)
+        XGrabButton(g_wm->dpy, buttons[i].button,
+                    buttons[i].mask | modifiers[j], c->win, False, BUTTONMASK,
+                    GrabModeAsync, GrabModeSync, None, None);
 }
