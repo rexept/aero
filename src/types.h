@@ -20,7 +20,6 @@ enum {
   NetWMFullscreen,
   NetActiveWindow,
   NetWMWindowType,
-  NetWMWindowsOpacity,
   NetWMWindowTypeDialog,
   NetClientList,
   NetLast

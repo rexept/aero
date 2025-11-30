@@ -13,8 +13,6 @@ typedef struct {
   const char *title;
   unsigned int tags;
   int isfloating;
-  double opacity;
-  double unfocusopacity;
   int monitor;
 } Rule;
 
@@ -34,9 +32,6 @@ static const gap_t default_gap = {.isgap = 1, .realgap = 10, .gappx = 10};
 static const unsigned int snap = 32; /* snap pixel */
 static const int showbar = 1;        /* 0 means no bar */
 static const int topbar = 1;         /* 0 means bottom bar */
-static const double activeopacity = 1.0f; /* Window opacity when it's focused (0 <= opacity <= 1) */
-static const double inactiveopacity = 0.7f; /* Window opacity when it's inactive (0 <= opacity <= 1) */
-static const double defaultopacity = 0.75;
 static const int startontag = 1;   /* 0 means no tag active on start */
 static const int refreshrate = 60; /* Update rate for drag and resize events, in updates (frames) per second */
 static const int user_bh = 2; /* 2 is the default spacing around the bar's font */
@@ -70,9 +65,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   focusopacity    unfocusopacity     monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           1.0,            inactiveopacity,   -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           activeopacity,  inactiveopacity,   -1 },
+	/* class      instance    title       tags mask     isfloating     monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,             -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,             -1 },
 };
 // clang-format on
 
@@ -157,10 +152,6 @@ static const Key keys[] = {{ MODKEY|ShiftMask,             XK_e,      exitaero, 
 // 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 // 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 //     { MODKEY,                       XK_u,      swalstopsel,    {0} },
-//     { MODKEY|ShiftMask,             XK_a,      changefocusopacity,   {.f = +0.025}},
-//     { MODKEY|ShiftMask,             XK_s,      changefocusopacity,   {.f = -0.025}},
-// 	{ MODKEY|ShiftMask,             XK_z,      changeunfocusopacity, {.f = +0.025}},
-//     { MODKEY|ShiftMask,             XK_x,      changeunfocusopacity, {.f = -0.025}},
 // 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
 // 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
 // 	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },

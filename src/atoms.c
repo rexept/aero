@@ -18,12 +18,8 @@ void init_atoms(void) {
   netatom[NetWMCheck] = XInternAtom(dpy, "_NET_SUPPORTING_WM_CHECK", False);
   netatom[NetWMFullscreen] =
       XInternAtom(dpy, "_NET_WM_STATE_FULLSCREEN", False);
-  netatom[NetWMWindowsOpacity] =
-      XInternAtom(dpy, "_NET_WM_WINDOW_OPACITY", False);
   netatom[NetWMWindowType] = XInternAtom(dpy, "_NET_WM_WINDOW_TYPE", False);
   netatom[NetWMWindowTypeDialog] =
       XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_DIALOG", False);
   netatom[NetClientList] = XInternAtom(dpy, "_NET_CLIENT_LIST", False);
-  netatom[NetWMWindowsOpacity] =
-      XInternAtom(dpy, "_NET_WM_WINDOW_OPACITY", False);
 }
