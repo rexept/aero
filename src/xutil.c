@@ -1,5 +1,6 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
+#include <X11/Xproto.h>
 #include <stdio.h>
 
 #include "wm.h"
@@ -40,11 +41,11 @@ int gettextprop(Window w, Atom atom, char *text, unsigned int size) {
   if (!text || size == 0)
     return 0;
   text[0] = '\0';
-  if (!XGetTextProperty(dpy, w, &name, atom) || !name.nitems)
+  if (!XGetTextProperty(g_wm->dpy, w, &name, atom) || !name.nitems)
     return 0;
   if (name.encoding == XA_STRING) {
     strncpy(text, (char *)name.value, size - 1);
-  } else if (XmbTextPropertyToTextList(dpy, &name, &list, &n) >= Success &&
+  } else if (XmbTextPropertyToTextList(g_wm->dpy, &name, &list, &n) >= Success &&
              n > 0 && *list) {
     strncpy(text, *list, size - 1);
     XFreeStringList(list);
