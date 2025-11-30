@@ -21,7 +21,7 @@ typedef struct {
 typedef struct {
   unsigned int mod;
   KeySym keysym;
-  void (*func)(const Arg *);
+  void (*func)(void);
   const Arg arg;
 } Key;
 
@@ -123,8 +123,8 @@ static const char *downbrightness[] = {"xbacklight", "-dec", "10", NULL};
 
 #include "exit.h"
 // clang-format off
-const Key keys[] = { MODKEY|ShiftMask,             XK_e,      exitaero,       {0} },
-;
+static const Key keys[] = {{ MODKEY|ShiftMask,             XK_e,      exitaero,       {0} }};
+
 // const Key keys[] = {
 // 	/* modifier                     key        function        argument */
 // 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } },
