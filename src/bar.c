@@ -84,7 +84,8 @@ void drawbar(monitor_t *m) {
     drw_setscheme(
         drw,
         g_wm->scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
-    drw_text(drw, x, 0, w, m->bar->bh, m->bar->lrpad / 2, tags[i], urg & 1 << i);
+    drw_text(drw, x, 0, w, m->bar->bh, m->bar->lrpad / 2, tags[i],
+             urg & 1 << i);
     for (c = m->clients; c; c = c->next) {
       if (c->tags & (1 << i)) {
         drw_rect(drw, x, 1 + (indn * 2), m->sel == c ? 6 : 1, 1, 1,
