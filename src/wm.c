@@ -9,6 +9,7 @@
 #include "draw.h"
 #include "ewmh.h"
 #include "key.h"
+#include "manage.h"
 #include "signals.h"
 #include "xinit.h"
 #include "wm.h"
@@ -44,6 +45,7 @@ void wm_setup(void) {
   init_ewmh_root_properties();
   init_root_events();
   grabkeys();
+  focus(NULL);
 }
 
 void quit(const Arg *arg) {
