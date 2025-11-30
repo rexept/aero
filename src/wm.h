@@ -16,6 +16,7 @@ struct wm_t {
 
   monitor_t *mons;
   monitor_t *selmon;
+  monitor_t *prevmon;
   Drw *drw;
   Clr **scheme;
 

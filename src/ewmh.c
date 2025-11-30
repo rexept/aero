@@ -1,4 +1,5 @@
 #include "ewmh.h"
+#include "client.h"
 #include "wm.h"
 #include <X11/X.h>
 #include <X11/Xatom.h>
@@ -26,4 +27,15 @@ void init_ewmh_root_properties(void) {
   XChangeProperty(dpy, *root, netatom[NetSupported], XA_ATOM, 32,
                   PropModeReplace, (unsigned char *)netatom, NetLast);
   XDeleteProperty(dpy, *root, g_wm->netatom[NetClientList]);
+}
+
+void seturgent(client_t *c, int urg) {
+  XWMHints *wmh;
+
+  c->isurgent = urg;
+  if (!(wmh = XGetWMHints(g_wm->dpy, c->win)))
+    return;
+  wmh->flags = urg ? (wmh->flags | XUrgencyHint) : (wmh->flags & ~XUrgencyHint);
+  XSetWMHints(g_wm->dpy, c->win, wmh);
+  XFree(wmh);
 }

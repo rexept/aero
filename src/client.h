@@ -12,7 +12,7 @@ struct client_t {
   int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
   int bw, oldbw;
   uint tags;
-  int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
+  int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen, cantfocus;
   client_t *next;
   client_t *snext;
   client_t *swer;
