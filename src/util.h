@@ -3,6 +3,7 @@
 
 // clang-format off
 #define BUTTONMASK              (ButtonPressMask|ButtonReleaseMask)
+#define TAGMASK                 ((1 << LENGTH(tags)) - 1)
 #define MAX(A, B)               ((A) > (B) ? (A) : (B))
 #define MIN(A, B)               ((A) < (B) ? (A) : (B))
 #define BETWEEN(X, A, B)        ((A) <= (X) && (X) <= (B))
@@ -13,6 +14,11 @@
                                * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
 #define LENGTH(X)               (sizeof X / sizeof X[0])
 #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + g_wm->selmon->bar.lrpad)
+/* The actual width of a client window includes the border and this macro helps calculate that. */
+#define WIDTH(X)                ((X)->w + 2 * (X)->bw)
+/* The actual height of a client window includes the border and this macro helps calculate that. */
+#define HEIGHT(X)               ((X)->h + 2 * (X)->bw)
+#define LENGTH(X)               (sizeof (X) / sizeof (X)[0])
 // clang-format on
 
 #include <X11/Xlib.h>
