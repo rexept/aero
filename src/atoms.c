@@ -1,5 +1,7 @@
 #include "atoms.h"
+#include "client.h"
 #include "wm.h"
+#include <X11/Xatom.h>
 
 void init_atoms(void) {
   Display *dpy = g_wm->dpy;
@@ -22,4 +24,19 @@ void init_atoms(void) {
   netatom[NetWMWindowTypeDialog] =
       XInternAtom(dpy, "_NET_WM_WINDOW_TYPE_DIALOG", False);
   netatom[NetClientList] = XInternAtom(dpy, "_NET_CLIENT_LIST", False);
+}
+
+Atom getatomprop(client_t *c, Atom prop) {
+  int di;
+  unsigned long dl;
+  unsigned char *p = NULL;
+  Atom da, atom = None;
+
+  if (XGetWindowProperty(g_wm->dpy, c->win, prop, 0L, sizeof atom, False,
+                         XA_ATOM, &da, &di, &dl, &dl, &p) == Success &&
+      p) {
+    atom = *(Atom *)p;
+    XFree(p);
+  }
+  return atom;
 }
