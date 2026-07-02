@@ -26,6 +26,10 @@ int main(int argc, char *argv[]) {
 
   // Bring everything online
   wm_setup();
+#ifdef __OpenBSD__
+  if (pledge("stdio rpath proc exec", NULL) == -1)
+    die("pledge");
+#endif /* __OpenBSD__ */
 
   XCloseDisplay(wm.dpy);
   return EXIT_SUCCESS;
